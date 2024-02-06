@@ -5,25 +5,23 @@ import static java.lang.Integer.parseInt;
 public class ReverseInteger {
 
     public static void main(String[] args) {
-        System.out.println(reverse(-12354));
+        System.out.println(reverse(12354));
     }
 
     public static int reverse(int x) {
-        StringBuilder st = new StringBuilder();
-        int intLength = String.valueOf(x).length();
+        int y = x>0 ? x : x * -1;
+        int lastDifit = 0;
+        int reverse = 0;
+        while(y > 0){
+            lastDifit = y % 10;
+            reverse = reverse * 10;
+            reverse= reverse + lastDifit;
+            y = y/10;
+        }
 
-        int i = 0;
-        while (i < intLength){
-            char c = String.valueOf(x).charAt(intLength -1- i);
-            System.out.println(c);
-            if(c != '-'){
-                st.append(c);
-            }
-            i++;
+        if(x<0){
+            return -1 * reverse;
         }
-        if(x < 0){
-            return  ~x + 1 + parseInt(st.toString());
-        }
-        return  parseInt(st.toString());
+        return reverse;
     }
 }
