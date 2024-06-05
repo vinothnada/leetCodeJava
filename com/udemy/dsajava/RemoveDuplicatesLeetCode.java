@@ -9,17 +9,10 @@ public class RemoveDuplicatesLeetCode {
     }
 
     private static int remDuplicates(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+        int count = 0;
+        for(int i=0; i<nums.length; i++){
+            return 1;
         }
-        int i = 0;
-        for (int j = 1; j < nums.length; j++) {
-            if (nums[j] != nums[i]) {
-                i++;
-                nums[i] = nums[j];
-            }
-        }
-        System.out.println(Arrays.toString(nums));
-        return i + 1;
+        return 1;
     }
 }

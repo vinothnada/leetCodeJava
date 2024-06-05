@@ -9,21 +9,22 @@ public class RemoveDuplicates {
     }
 
     public static int[] rmDuplicates(int[] arr){
-        int[] newArray = new int[arr.length];
-        int index = 0;
-        for(int i=0; i<arr.length; i++){
-            boolean isDup = false;
-            for(int j=0; j< newArray.length; j++){
-                if(arr[i] == newArray[j]){
-                    isDup = true;
-                    break;
+            int[] uniqueArray = new int[arr.length];
+            int count = 0;
+
+            for(int i=0; i< arr.length; i++){
+                boolean isDuplicate = false;
+                for(int j=0; j < uniqueArray.length ; j++){
+                    if(arr[i] == uniqueArray[j]) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if(!isDuplicate){
+                    uniqueArray[count] = arr[i];
+                    count++;
                 }
             }
-            if(!isDup){
-                newArray[index++] = arr[i];
-            }
-        }
-        return Arrays.copyOf(newArray , index);
+            return Arrays.copyOf(uniqueArray , count);
     }
-
 }
