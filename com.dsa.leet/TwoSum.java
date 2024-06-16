@@ -2,6 +2,8 @@ package com.dsa.leet;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+
 // 1
 public class TwoSum {
 
@@ -11,16 +13,17 @@ public class TwoSum {
     }
 
     static int[] twoSum(int[] nums, int target){
-        HashMap<Integer, Integer> itemsMap = new HashMap<>();
-        for(int i=0; i<nums.length; i++){
-            int compliment = target - nums[i];
-            if(itemsMap.containsKey(compliment)){
-                return new int[] {itemsMap.get(compliment), i };
-            }else{
-                itemsMap.put(nums[i],i);
+        Map<Integer , Integer> map1 = new HashMap<>();
+        int[] result = new int[2];
+        for(int i=0 ; i<nums.length; i++){
+            if(map1.containsKey(target - nums[i])){
+                result[0] = i;
+                result[1] = map1.get(target - nums[i]);
+                return result;
             }
+            map1.put(nums[i] , i);
         }
-        throw new IllegalArgumentException("No Match Found");
+        return result;
     }
 
 }
