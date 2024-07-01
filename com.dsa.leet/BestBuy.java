@@ -1,5 +1,3 @@
-package com.dsa.leet;
-
 public class BestBuy {
     public static void main(String[] args) {
         System.out.println(maxProfit(new int[] {1,6,8,3,12}));
